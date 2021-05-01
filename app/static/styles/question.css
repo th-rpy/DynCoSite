@@ -1,0 +1,120 @@
+/** Question Container **/
+
+#search_question_input {
+	margin-top: 200px;
+}
+#search_question_input .p-3 {
+	height: 52px !important;
+}
+.form-group label {
+	font-size: 16px;
+	margin-left: 10px;
+}
+
+#search_question_input #event_code {
+	width: 320px;
+}
+
+#yourname {
+	margin-top: -49.50px;
+}
+
+#arrow-right {
+	height: 52px;
+	font-size: 18px;
+	font-weight: bold;
+	margin-left: -10px;
+}
+.fa-arrow-right {
+	vertical-align: 0px !important;
+}
+#number_of_questions {
+	margin-left: -400px;
+	margin-bottom: 15px;
+	font-size: 16px;
+	color: #7c7c7c;
+}
+
+/** Question Navbar **/
+#nav_question {
+	background-color: #227cbc;
+	height: 60px;
+}
+#nav_question .nav-item .btn-link {
+	color: #fff;
+	padding-top: 18px;
+	margin-right: 5px;
+	margin-left: 5px;
+}
+#nav_question .nav-item .nav-link {
+	color: #fff;
+	padding-top: 18px;
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
+@media (max-width: 575.98px) {
+#nav_question {
+    height: 80px;
+}
+#number_of_questions{
+	margin-left: -250px;
+}
+}
+
+/** Question Card and table **/
+#question-table {
+	border: 1px solid #bbb;
+	background: #fff;
+}
+.anonymous {
+	top: 13px;
+	font-size: 15px;
+	margin-left: 10px;
+}
+.question-calandar {
+	top: 33px;
+	left: 55px;
+	font-size: 12px;
+	font-weight: lighter;
+}
+.text-question {
+	font-size: 14px;
+	font-weight: lighter;
+	margin-bottom: 5px;
+}
+#question-icon {
+	top: 20px;
+	right: 20px;
+	padding: 0px 15px;
+	font-size: 14px;
+	border: 1px solid #bbb;
+	border-radius: 20px;
+}
+
+.fa-user-circle {
+	color: #bbb;
+	margin-top: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

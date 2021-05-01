@@ -1,0 +1,49 @@
+{% macro render_field(field) %}
+    <div class="form-group">
+        {{ field.label }}
+        {{ field(class_='form-control', **kwargs) }}
+        {% if field.errors %}
+            {% for e in field.errors %}
+                <span class="help-inline">{{ e }}</span>
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endmacro %}
+
+{% macro Field(field) -%}
+	<div class="form-group">
+        {{ field(class_='form-control shadow p-3 mb-5 bg-white', **kwargs) }}
+        {% if field.errors %}
+            {% for e in field.errors %}
+                <span class="help-inline">{{ e }}</span>
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endmacro %}
+
+{% macro anotherField(field) -%}
+    <div class="form-group">
+        {{ field(class_='form-control', **kwargs) }}
+        {% if field.errors %}
+            {% for e in field.errors %}
+                <span class="help-inline">{{ e }}</span>
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endmacro %}
+
+{% macro input(field, class='') %}
+    <div class="{{ class }}">
+        {{ field.label(class="label position-absolute")}}
+        {{ field(class_='form-control', **kwargs) }}
+        {% if field.errors %}
+            {% for e in field.errors %}
+                <span class="help-inline">{{ e }}</span>
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endmacro %}
+
+
+
+

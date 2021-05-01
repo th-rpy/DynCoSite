@@ -1,0 +1,72 @@
+{% extends 'main/index.html' %}
+{% from "includes/_formhelpers.html" import render_field %}
+{% block style %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/question.css') }}">
+{% endblock %}
+{% block title %}
+	{% if event %}
+		{{ event }} | Question
+	{% else %}
+		Question
+	{% endif %}
+{% endblock %}
+{% block navbar %}
+    {% include 'navbar/question_navbar.html' %}
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-sm col-md-8 col-lg-6">
+        	<form method='POST'>
+            <div class="form-group">
+                <label class="text-secondary" for="question_label">Ask the speaker</label>
+                <textarea name="question" class="form-control shadow p-3 mb-5 bg-white" rows="4" placeholder="Type your question"></textarea>
+            </div>
+            <div class="input-group mb-3" id="yourname">
+                <input type="text" class="form-control shadow bg-white" placeholder="Your name (opational)" aria-label="Recipient's username" aria-describedby="basic-addon2" name="username">
+                <div class="input-group-append">
+                    <button class="btn btn-success shadow bg-success" type="submit">Send</button>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="d-flex justify-content-center">
+    <span id="number_of_questions">
+        {% if number_of_question > 1 %}
+            {{number_of_question}} questions
+        {% elif number_of_question == 0 %}
+            <span style="margin-left: 100px;">Please enter question to the speaker.</span>
+        {% else %}
+            {{number_of_question}} question
+        {% endif %}
+    </span>
+</div>
+<div class="container" style="width: 580px;">
+<table class="table" id="question-table">
+    <tbody>
+        {% for question in questions | sort(attribute='registered_on', reverse = True) %}   
+        <tr>
+            <td class="position-relative">
+                <h6><i class="fa fa-user-circle fa-2x"></i><small class="position-absolute anonymous"> {{question.username}}</small></h6>
+                <small class="position-absolute text-muted question-calandar">{{question.registered_on.strftime('%b %d, %Y')}}
+                            </small>
+                <p class="card-text text-muted text-question" data-auction="{{question.id}}" id="{{question.id}}" style="border: none; resize: none;">{{question.question}}</p>
+                {% if question.like == False %}
+                <button class="btn text-muted position-absolute" id="question-icon"><span style="text-decoration: none;">0&nbsp;</span>
+                    <a href="{{url_for('question_like', id = question.id)}}"><span class="fa fa-thumbs-o-up text-muted"></span></a>
+                </button>
+                {% elif question.like == True %}
+                 <button class="btn text-muted position-absolute" id="question-icon"><span style="text-decoration: none;">1&nbsp;</span>
+                    <a href="{{url_for('question_unlike', id = question.id)}}"><span class="fa fa-thumbs-up"></span></a>
+                </button>
+                {% endif %}
+
+            </td>
+        </tr>
+    </tbody>
+    {% endfor %}
+</table>
+</div>
+{% endblock %}

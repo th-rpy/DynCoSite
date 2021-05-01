@@ -1,0 +1,28 @@
+{% from "includes/_formhelpers.html" import input %}
+
+<button class="float" data-toggle="modal" data-target="#exampleModalCenter">
+	<i class="fa fa-plus my-float"></i>
+</button>
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  	<div class="modal-dialog" role="document">
+	    <div class="modal-content event-body">
+		    <p class="modal-title text-center create-event-header">Create new event</p>
+		    <div class="modal-body">
+		        <form method="POST" action="">
+		        	{{ form.csrf_token }}
+		            <div class="form-group position-relative">
+		              	{{ input(form.date_from, label_visible=true, type='text',  id="datefrominput", autocomplete="off", class="date-to", class="date-from") }}
+		              	{{ input(form.date_to, label_visible=true, type='text',  id="datetoinput", autocomplete="off", class="position-absolute date-to") }}
+		              	{{ input(form.event_name, label_visible=true, type='text',  id="eventnameinput", autocomplete="off" , class="position-absolute event-name") }}
+						{{ input(form.event_description, label_visible=true, type='text',  id="eventdecrinput", autocomplete="off" , class="position-absolute event-descr") }} 
+						  <div class="create-btn">
+		                	<button class="position-absolute text-center" data-dismiss="modal" id="btn-close">Close</button>
+		                	<button type="submit" class="position-absolute text-center" id="btn-create">Create</button>
+		             	</div>
+		            </div>
+		       	</form>
+		    </div>
+	    </div>
+  	</div>
+</div>

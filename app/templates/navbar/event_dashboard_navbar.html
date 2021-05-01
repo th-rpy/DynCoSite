@@ -1,0 +1,20 @@
+{% from "includes/_formhelpers.html" import Field %}
+{% from "includes/_formhelpers.html" import input %}
+<div class="navbar navbar-light bg-light justify-content-between shadow bg-white" id="navbar-event">
+  	<a class="navbar-brand" id="events">My events</a>
+  	<div class="form-inline">
+  		<span id="circle">
+    		<i class="fa fa-search fa-lg" aria-hidden="true"></i>
+  		</span>
+  		<form method="POST" action="">
+            {{ searchform.csrf_token }}
+            {{ Field(searchform.search, placeholder='Search', type='text', class='form-control', id='search', autocomplete="off") }}
+        </form>
+  	</div>
+  	<div class="nav-item nav-link">
+  		<button class="bd-highlight btn btn-link text-muted" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: -5px; margin-bottom: -5px;">
+		    <i class="fa fa-ellipsis-v"></i>
+		</button>
+		{% include 'includes/_sidemenu.html' %}
+	</div>
+</div>

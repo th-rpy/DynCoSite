@@ -1,0 +1,108 @@
+{% extends 'main/index.html' %}
+{% from "includes/_formhelpers.html" import Field %}
+{% block title %}DynCo - Interactive Audience {% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/home.css') }}">
+{% endblock %}
+{% block navbar %}
+	{% include 'navbar/home-navbar.html' %}
+{% endblock %}
+{% block content %}
+<img src="static/img/bg-background.jpg" alt="Girl in a jacket" style="width:100%;height:400px;">
+<div class="container" id="main-page">
+    <ul class="row justify-content-md-center">
+        <div class="col-sm col-lg-8">
+            <h2 class="text-center">Every Question Matters...</h2>
+            <p class="text-center">The Ultimate Question/Answer and survey platform for corporate meetings and events</p>
+            <div class="row d-flex justify-content-center">
+                <form method="POST" class="input-group" id="join-input">
+                    {{ form.csrf_token }}
+                    {{ Field(form.event_code, placeholder='# Enter event code', type='text') }}
+                    <div class="input-group-append">
+                        <button class="btn btn-success shadow p-3 mb-5 bg-success" type="submit" id="join">Join</button>
+                    </div>
+                </form>
+                <button class="btn btn-success shadow p-3 mb-5 bg-success" type="submit" id="sign-up"><a href="{{url_for('register')}}">Sign up</a></button>
+            </div>
+        </div>
+        
+              <ul class="menu__main">
+                  <input type="checkbox" id="submenu-toggler-product" class="menu__item-toggler" hidden>
+                  <ul class="menu__dropdown menu__dropdown--with-extra menu__dropdown--product">
+                    
+                    <li class="menu__extra" data-extra="product">
+                      <h2 class="h4 menu__title menu__title--product">Product tour</h2>
+                      <p class="menu__extra-desc">
+                        See how DynCo can help you engage your audience, whether it’s your team or event attendees.
+                      </p>
+                      <p class="menu__learn-more"><a class="button button--tertiary" href="/product" data-exp-cta="open-learn_link_learn-more_header_main-menu_product">Learn more</a></p>
+                    </li>
+                    <li class="menu__extra" data-extra="questions">
+                      <h2 class="h4 menu__title menu__title--questions">Questions</h2>
+                      <p class="menu__extra-desc">
+                        Let your participants ask questions from any device and vote for their favorite ones.
+                      </p>
+                      <p class="menu__learn-more"><a class="button button--tertiary" href="/features-questions" data-exp-cta="open-learn_link_learn-more_header_main-menu_questions">Learn more</a></p>
+                    </li>
+                    <li class="menu__extra" data-extra="polls">
+                      <h2 class="h4 menu__title menu__title--polls">Live polls</h2>
+                      <p class="menu__extra-desc">
+                        Make your meetings and events more interactive by polling your audience in real time.
+                      </p>
+                      <p class="menu__learn-more"><a class="button button--tertiary" href="/features-polls" data-exp-cta="open-learn_link_learn-more_header_main-menu_polls">Learn more</a></p>
+                    </li>
+                    <li class="menu__extra" data-extra="quizzes">
+                      <h2 class="h4 menu__title menu__title--quizzes">Quizzes <sup>BETA</sup></h2>
+                      <p class="menu__extra-desc">
+                        Make learning more fun, dynamic and social with live quizzes.
+                      </p>
+                      <p class="menu__learn-more"><a class="button button--tertiary" href="/features-quizzes" data-exp-cta="open-learn_link_learn-more_header_main-menu_quizzes">Learn more</a></p>
+                    </li>
+                    <li class="menu__extra" data-extra="analytics">
+                      <h2 class="h4 menu__title menu__title--analytics">Analytics</h2>
+                      <p class="menu__extra-desc">
+                        Discover the most popular questions, topics and insights about your audience.
+                      </p>
+                      <p class="menu__learn-more"><a class="button button--tertiary" href="/features-analytics" data-exp-cta="open-learn_link_learn-more_header_main-menu_analytics">Learn more</a></p>
+                    </li>
+                    <li class="menu__extra" data-extra="integrations">
+                      <h2 class="h4 menu__title menu__title--integrations">Integrations</h2>
+                      <p class="menu__extra-desc">
+                        Make DynCo part of your workflow, whether it’s at your workplace or at your conference.
+                      </p>
+                      <p class="menu__learn-more"><a class="button button--tertiary" href="/features-integrations" data-exp-cta="open-learn_link_learn-more_header_main-menu_integrations">Learn more</a></p>
+                    </li>
+                  </ul>
+                
+                <li class="menu__item menu__item--with-dropdown">
+                  <input type="checkbox" id="submenu-toggler-use-cases" class="menu__item-toggler" hidden>
+                  <label class="menu__label" for="submenu-toggler-use-cases"><a class="menu__link">Solutions</a></label>
+                  <ul class="menu__dropdown">
+                    <li class="menu__subitem"><a class="menu__subitem-link" href="/business" data-exp-cta="open-i-link_link_business_header_main-menu">Business</a></li>
+                    <li class="menu__subitem"><a class="menu__subitem-link" href="/conferences" data-exp-cta="open-i-link_link_conferences_header_main-menu">Conferences</a></li>
+                    <li class="menu__subitem"><a class="menu__subitem-link" href="/remote-meetings" data-exp-cta="open-i-link_link_remote-meetings_header_main-menu">Remote Meetings</a></li>
+                    <li class="menu__subitem"><a class="menu__subitem-link" href="/education" data-exp-cta="open-i-link_link_education_header_main-menu">Education</a></li>
+                    <li class="menu__subitem"><a class="menu__subitem-link" href="/use-cases" data-exp-cta="open-i-link_link_use-cases_header_main-menu">Use Cases</a></li>
+                    <li class="menu__subitem"><a class="menu__subitem-link" href="/customer-stories" data-exp-cta="open-i-link_link_customer-stories_header_main-menu">Customer Stories</a></li>
+                  </ul>
+                </li>
+                <li class="menu__item menu__item--with-dropdown">
+                  <input type="checkbox" id="submenu-toggler-pricing" class="menu__item-toggler" hidden>
+                  <label class="menu__label" for="submenu-toggler-pricing"><a class="menu__link">Pricing</a></label>
+                  <ul class="menu__dropdown">
+                    <li class="menu__subitem"><a class="menu__subitem-link" href="/pricing?plan=one-time" data-exp-cta="open-i-link_link_one-time-plans_header_main-menu">One-time Plans</a></li>
+                    <li class="menu__subitem"><a class="menu__subitem-link" href="/pricing?plan=annual" data-exp-cta="open-i-link_link_annual-plans_header_main-menu">Annual Plans</a></li>
+                    <li class="menu__subitem"><a class="menu__subitem-link" href="/pricing?plan=edu" data-exp-cta="open-i-link_link_teacher-plans_header_main-menu">Teacher Plans</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </ul>
+
+    </div>
+
+
+</div>
+
+{% endblock %}
+
+
